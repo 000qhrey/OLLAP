@@ -1,0 +1,290 @@
+---
+# GCE A-Level Physics: Mechanics Module
+---
+
+## Chapter 1: Kinematics - Equations of Motion
+
+### 1.1 Introduction to Kinematics
+
+Kinematics is the study of **motion** without considering the forces that cause it. We describe motion using key quantities:
+
+* **Displacement ($s$):** The distance moved in a specific direction. It is a **vector** quantity. (Unit: metres, m)
+* **Velocity ($v$):** The rate of change of displacement. It is a **vector** quantity. (Unit: metres per second, $\text{m s}^{-1}$)
+* **Acceleration ($a$):** The rate of change of velocity. It is a **vector** quantity. (Unit: metres per second squared, $\text{m s}^{-2}$)
+
+> **Vector vs. Scalar**
+>
+> * A **scalar** has magnitude (size) only (e.g., distance, speed, time, mass).
+> * A **vector** has both magnitude and direction (e.g., displacement, velocity, acceleration, force).
+>
+> In 1D kinematics, we use positive ($+$) and negative ($-$) signs to represent direction.
+
+### 1.2 The 'SUVAT' Equations
+
+For an object moving with **constant acceleration**, we can use a set of five equations, often called the 'SUVAT' equations, to relate the key variables:
+
+* $s$ = displacement
+* $u$ = initial velocity
+* $v$ = final velocity
+* $a$ = acceleration
+* $t$ = time
+
+**The Five Equations:**
+
+1.  $$v = u + at$$
+    * (Missing: $s$)
+2.  $$s = \left(\frac{u+v}{2}\right)t$$
+    * (Missing: $a$)
+3.  $$s = ut + \frac{1}{2}at^2$$
+    * (Missing: $v$)
+4.  $$s = vt - \frac{1}{2}at^2$$
+    * (Missing: $u$)
+5.  $$v^2 = u^2 + 2as$$
+    * (Missing: $t$)
+
+To solve any problem, you only need to know **three** of the variables to find a **fourth**, using the equation that omits the **fifth** (unknown) variable.
+
+### 1.3 Worked Example 1: Horizontal Motion
+
+A car accelerates uniformly from 5 $\text{m s}^{-1}$ to 25 $\text{m s}^{-1}$ over a distance of 150 m. Calculate its acceleration and the time taken.
+
+**Step 1: List the knowns and unknowns.**
+* $s = 150 \text{ m}$
+* $u = 5 \text{ m s}^{-1}$
+* $v = 25 \text{ m s}^{-1}$
+* $a = ?$
+* $t = ?$
+
+**Step 2: Find the acceleration ($a$).**
+We know $s, u, v$ and want $a$. We need the equation that links these four, which is $v^2 = u^2 + 2as$.
+
+* $v^2 = u^2 + 2as$
+* $25^2 = 5^2 + 2(a)(150)$
+* $625 = 25 + 300a$
+* $600 = 300a$
+* $a = 2.0 \text{ m s}^{-2}$
+
+**Step 3: Find the time ($t$).**
+We can now use our calculated $a$. The simplest equation is $v = u + at$.
+* $v = u + at$
+* $25 = 5 + (2.0)t$
+* $20 = 2.0t$
+* $t = 10 \text{ s}$
+
+### 1.4 Worked Example 2: Vertical Motion (Freefall)
+
+A ball is thrown vertically upwards with an initial velocity of 15 $\text{m s}^{-1}$. Assuming air resistance is negligible, find:
+a) The maximum height reached.
+b) The time taken to return to the thrower's hand.
+
+**Key Concept: Motion under gravity**
+* In freefall, the only force is gravity.
+* This causes a constant vertical acceleration, $g = 9.81 \text{ m s}^{-2}$, directed **downwards**.
+* **Crucial:** We must define a positive direction. Let's choose **upwards as positive**.
+* This means $g$ (which acts downwards) must be negative: $a = -9.81 \text{ m s}^{-2}$.
+
+**Solving (a): Maximum height**
+At the maximum height, the ball is momentarily stationary, so its final velocity is zero.
+* $s = ?$
+* $u = +15 \text{ m s}^{-1}$
+* $v = 0 \text{ m s}^{-1}$
+* $a = -9.81 \text{ m s}^{-2}$
+* $t = ?$ (We don't need $t$)
+
+We use $v^2 = u^2 + 2as$.
+* $0^2 = 15^2 + 2(-9.81)s$
+* $0 = 225 - 19.62s$
+* $19.62s = 225$
+* $s = \frac{225}{19.62} = 11.47 \text{ m}$
+* **Max height = 11.5 m** (to 3 s.f.)
+
+**Solving (b): Time to return**
+The ball returns to the thrower's hand. This means its **displacement ($s$) is zero**.
+* $s = 0 \text{ m}$
+* $u = +15 \text{ m s}^{-1}$
+* $v = ?$
+* $a = -9.81 \text{ m s}^{-2}$
+* $t = ?$
+
+We use $s = ut + \frac{1}{2}at^2$.
+* $0 = 15t + \frac{1}{2}(-9.81)t^2$
+* $0 = 15t - 4.905t^2$
+* $0 = t(15 - 4.905t)$
+This gives two solutions:
+* $t = 0 \text{ s}$ (This is the start of the motion)
+* $15 - 4.905t = 0 \implies t = \frac{15}{4.905} = 3.058 \text{ s}$
+* **Total time = 3.06 s** (to 3 s.f.)
+
+---
+---
+
+## Chapter 2: Forces and Newton's Laws
+
+### 2.1 Introduction to Forces
+
+A **force ($F$)** is a push or a pull. It is a **vector** quantity measured in **Newtons (N)**. A force can cause an object to:
+* Change its speed (accelerate or decelerate)
+* Change its direction
+* Change its shape
+
+A **free-body diagram** is a simple diagram showing *only* an object and the forces acting *on* it.
+
+
+
+### 2.2 Newton's Three Laws of Motion
+
+#### Newton's First Law (The Law of Inertia)
+> "An object will remain at rest, or continue to move with a constant velocity, unless acted upon by a resultant force."
+
+This means:
+* If an object is stationary, all forces acting on it are balanced ($\sum F = 0$).
+* If an object is moving at a constant velocity (constant speed in a straight line), all forces on it are also balanced ($\sum F = 0$).
+* This property of an object resisting a change in its motion is called **inertia** (which is related to its mass).
+
+#### Newton's Second Law
+> "The resultant force acting on an object is directly proportional to the rate of change of its momentum."
+
+For an object with constant mass, this simplifies to the most famous equation in physics:
+$$F = ma$$
+
+* $F$ = **Resultant force** on the object (in N)
+* $m$ = Mass of the object (in kg)
+* $a$ = Acceleration of the object (in $\text{m s}^{-2}$)
+
+This law links forces (Chapter 2) to acceleration (Chapter 1).
+
+#### Newton's Third Law
+> "When body A exerts a force on body B, body B exerts an equal and opposite force on body A."
+
+Key points about action-reaction pairs:
+* They are **equal** in magnitude.
+* They are **opposite** in direction.
+* They act on **different** bodies.
+* They are of the **same type** (e.g., both gravitational or both contact forces).
+
+*Example:* You push a wall (force A-on-B). The wall pushes you back (force B-on-A). This is why you don't fall through it.
+
+### 2.3 Worked Example: $F=ma$ with Friction
+
+A box of mass 10 kg is pulled along a rough horizontal floor by a horizontal rope. The tension in the rope is 50 N. The frictional force opposing the motion is 20 N. Calculate the acceleration of the box.
+
+**Step 1: Draw a free-body diagram.**
+* Object: The 10 kg box.
+* Forces acting **on** the box:
+    * **Weight ($W$)**: Downwards ($W = mg = 10 \times 9.81 = 98.1 \text{ N}$)
+    * **Normal Reaction ($R$)**: Upwards (from the floor)
+    * **Tension ($T$)**: To the right ($T = 50 \text{ N}$)
+    * **Friction ($f$)**: To the left ($f = 20 \text{ N}$)
+
+**Step 2: Resolve forces into components.**
+In this case, they are already resolved into horizontal and vertical components.
+
+**Step 3: Apply Newton's Second Law ($F=ma$) in each direction.**
+* **Vertically:** The box is not accelerating up or down ($a=0$). So, forces are balanced (Newton's 1st Law).
+    * $\sum F_y = 0$
+    * $R - W = 0 \implies R = W = 98.1 \text{ N}$
+    (This is often needed to calculate friction, as $f = \mu R$, but here friction is given).
+
+* **Horizontally:** The box *is* accelerating. Let's take the direction of motion (right) as positive.
+    * $\sum F_x = ma$
+    * (Force to the right) - (Force to the left) = $ma$
+    * $T - f = ma$
+    * $50 - 20 = 10a$
+    * $30 = 10a$
+    * $a = 3.0 \text{ m s}^{-2}$
+
+**Answer:** The acceleration of the box is 3.0 $\text{m s}^{-2}$ in the direction of the pull.
+
+---
+---
+
+## Chapter 3: Momentum and Impulse
+
+### 3.1 Definition of Momentum
+
+**Linear momentum ($p$)** is a measure of an object's motion. It is the product of its mass and velocity.
+$$p = mv$$
+* $p$ = momentum (in $\text{kg m s}^{-1}$)
+* $m$ = mass (in kg)
+* $v$ = velocity (in $\text{m s}^{-1}$)
+
+Momentum is a **vector** quantity. Its direction is the same as the velocity.
+
+### 3.2 Conservation of Linear Momentum
+
+> **Principle of Conservation of Momentum:**
+> "In any collision or explosion, the total momentum of all objects in an isolated system remains constant, provided no external resultant force acts on the system."
+
+"Isolated system" means we only consider the objects involved (e.g., the two colliding balls). We ignore external forces like friction or air resistance (or assume the event happens so fast they are negligible).
+
+In simple terms:
+**Total momentum *before* the event = Total momentum *after* the event**
+
+For a collision between two objects, A and B:
+$$m_A u_A + m_B u_B = m_A v_A + m_B v_B$$
+(where $u$ is initial velocity and $v$ is final velocity)
+
+### 3.3 Worked Example: Collision
+
+A 4 kg trolley moving at 5 $\text{m s}^{-1}$ to the right collides with a 2 kg trolley moving at 3 $\text{m s}^{-1}$ to the left. The trolleys couple together on impact. What is their common velocity after the collision?
+
+**Step 1: Draw a "before" and "after" diagram.**
+* **Before:** (4 kg $\rightarrow$ 5 $\text{m s}^{-1}$) and (3 $\text{m s}^{-1}$ $\leftarrow$ 2 kg)
+* **After:** (4 kg + 2 kg $\rightarrow$ $v$ $\text{m s}^{-1}$)
+
+**Step 2: Define a positive direction.**
+Let **right be positive**.
+* This means the 2 kg trolley has an *initial velocity* of $-3 \text{ m s}^{-1}$.
+
+**Step 3: Apply conservation of momentum.**
+* $\text{Total momentum before} = \text{Total momentum after}$
+* $(m_A u_A) + (m_B u_B) = (m_A + m_B) v$
+* $(4 \times 5) + (2 \times -3) = (4 + 2) v$
+* $20 - 6 = 6v$
+* $14 = 6v$
+* $v = \frac{14}{6} = 2.33... \text{ m s}^{-1}$
+
+**Answer:** The common velocity of the coupled trolleys is **2.3 $\text{m s}^{-1}$ to the right** (since our answer is positive).
+
+### 3.4 Impulse
+
+**Impulse** is the product of a force and the time over which it acts. It is equal to the **change in momentum** it produces.
+
+$$Impulse = F \Delta t = \Delta p = mv - mu$$
+
+* $F$ = Average force applied (in N)
+* $\Delta t$ = Time the force acts for (in s)
+* $\Delta p$ = Change in momentum (in $\text{kg m s}^{-1}$)
+
+This equation comes directly from Newton's Second Law:
+$F = ma = m \left(\frac{v-u}{t}\right) \implies Ft = m(v-u) = mv - mu$
+
+Impulse is a vector, measured in **N s** (which is identical to $\text{kg m s}^{-1}$).
+
+### 3.5 Worked Example: Impulse
+
+A 0.05 kg tennis ball, moving horizontally at 30 $\text{m s}^{-1}$, is hit by a racket. It returns horizontally in the opposite direction at 40 $\text{m s}^{-1}$. The ball is in contact with the racket for 0.02 s.
+a) Calculate the impulse on the ball.
+b) Calculate the average force exerted by the racket on the ball.
+
+**Step 1: List variables and define a positive direction.**
+* Let the **final** direction (away from the racket) be **positive**.
+* $m = 0.05 \text{ kg}$
+* $u = -30 \text{ m s}^{-1}$ (it's approaching, so it's in the negative direction)
+* $v = +40 \text{ m s}^{-1}$
+* $\Delta t = 0.02 \text{ s}$
+
+**Solving (a): Impulse**
+* $Impulse = \Delta p = mv - mu$
+* $Impulse = (0.05 \times 40) - (0.05 \times -30)$
+* $Impulse = (2.0) - (-1.5)$
+* $Impulse = 2.0 + 1.5 = 3.5 \text{ N s}$
+
+**Answer:** The impulse is **3.5 N s** (in the direction of the final velocity).
+
+**Solving (b): Average Force**
+* $Impulse = F \Delta t$
+* $3.5 = F \times 0.02$
+* $F = \frac{3.5}{0.02} = 175 \text{ N}$
+
+**Answer:** The average force is **175 N**.

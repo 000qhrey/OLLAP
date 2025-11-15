@@ -1,0 +1,402 @@
+---
+# GCE A-Level Mathematics: Statistics 1 Module
+---
+
+## Chapter 1: Correlation
+
+### 1.1 Introduction to Correlation
+
+In statistics, we often want to know if there is a relationship, or **association**, between two different variables. For example, is there a link between the number of hours a student revises and the exam mark they achieve?
+
+**Correlation** is a measure of the strength and direction of a **linear** relationship between two quantitative (numerical) variables.
+
+* **Quantitative Variables:** Variables that can be measured, e.g., height, weight, time, marks.
+* **Linear Relationship:** A relationship that, when plotted on a graph, tends to follow a straight line.
+
+### 1.2 Scatter Diagrams
+
+The simplest way to see correlation is to plot the data on a **scatter diagram** (or scatter plot). Each point on the graph represents one pair of data (e.g., one student's revision hours and their exam score).
+
+* **Explanatory Variable (or Independent Variable):** Plotted on the $x$-axis. This is the variable we think might *explain* the change in the other variable.
+* **Response Variable (or Dependent Variable):** Plotted on the $y$-axis. This is the variable that we think *responds* to the other.
+
+
+
+[Image of positive, negative, and no correlation scatter plots]
+
+
+**Interpreting Scatter Diagrams:**
+
+1.  **Positive Correlation:** As the $x$-variable increases, the $y$-variable **tends to increase**. The points on the graph follow a pattern from the bottom-left to the top-right.
+    * *Example:* Height and weight.
+2.  **Negative Correlation:** As the $x$-variable increases, the $y$-variable **tends to decrease**. The points on the graph follow a pattern from the top-left to the bottom-right.
+    * *Example:* Number of hours spent playing video games and exam score.
+3.  **No Correlation:** There is no clear linear pattern. The points are scattered randomly.
+    * *Example:* Shoe size and IQ.
+
+> **Warning: Correlation vs. Causation**
+>
+> This is the most important rule in statistics: **Correlation does not imply causation!**
+>
+> Just because two variables are strongly correlated, it does **not** mean that one *causes* the other. There could be a third, hidden variable (a "lurking" or "confounding" variable) that causes both.
+>
+> *Example:* Ice cream sales and the number of drowning incidents are strongly positively correlated.
+> * **Does this mean ice cream causes drowning?** No.
+> * **The lurking variable?** The weather. Hot weather causes more people to buy ice cream *and* causes more people to go swimming (which leads to more drowning incidents).
+
+### 1.3 The Product Moment Correlation Coefficient (PMCC)
+
+To get a numerical value for the strength and direction of linear correlation, we calculate the **Product Moment Correlation Coefficient (PMCC)**, denoted by **$r$**.
+
+The value of $r$ is always between -1 and 1.
+* **$r = 1$**: Perfect positive linear correlation.
+* **$r = -1$**: Perfect negative linear correlation.
+* **$r = 0$**: No linear correlation.
+
+| $r$-value | Strength | Direction |
+| :--- | :--- | :--- |
+| 1 | Perfect | Positive |
+| 0.8 to 1 | Very Strong | Positive |
+| 0.6 to 0.8 | Strong | Positive |
+| 0.4 to 0.6 | Moderate | Positive |
+| 0.2 to 0.4 | Weak | Positive |
+| 0 to 0.2 | Very Weak | Positive |
+| -0.2 to 0 | Very Weak | Negative |
+| -0.4 to -0.2 | Weak | Negative |
+| -0.6 to -0.4 | Moderate | Negative |
+| -0.8 to -0.6 | Strong | Negative |
+| -1 to -0.8 | Very Strong | Negative |
+| -1 | Perfect | Negative |
+
+---
+**Calculation**
+
+To find $r$, we first need to calculate three "summary statistics": $S_{xx}$, $S_{yy}$, and $S_{xy}$.
+
+Given $n$ pairs of data $(x_i, y_i)$:
+
+* **$S_{xx} = \sum (x_i - \bar{x})^2 = \sum x^2 - \frac{(\sum x)^2}{n}$**
+* **$S_{yy} = \sum (y_i - \bar{y})^2 = \sum y^2 - \frac{(\sum y)^2}{n}$**
+* **$S_{xy} = \sum (x_i - \bar{x})(y_i - \bar{y}) = \sum xy - \frac{(\sum x)(\sum y)}{n}$**
+
+The formula for the PMCC is:
+
+$$r = \frac{S_{xy}}{\sqrt{S_{xx} S_{yy}}}$$
+
+---
+### 1.4 Worked Example: Calculating PMCC
+
+A teacher records the number of hours 6 students spent revising ($x$) and the mark ($y$) they received in a test.
+
+| Student | Hours ($x$) | Mark ($y$) |
+| :--- | :--- | :--- |
+| A | 2 | 55 |
+| B | 3 | 60 |
+| C | 5 | 70 |
+| D | 8 | 85 |
+| E | 10 | 90 |
+| F | 12 | 95 |
+
+**Calculate the PMCC and interpret the result.**
+
+**Step 1: Find the summary statistics.**
+We need $\sum x$, $\sum y$, $\sum x^2$, $\sum y^2$, $\sum xy$, and $n$.
+* $n = 6$
+* $\sum x = 2 + 3 + 5 + 8 + 10 + 12 = 40$
+* $\sum y = 55 + 60 + 70 + 85 + 90 + 95 = 455$
+* $\sum x^2 = 2^2 + 3^2 + 5^2 + 8^2 + 10^2 + 12^2 = 4 + 9 + 25 + 64 + 100 + 144 = 346$
+* $\sum y^2 = 55^2 + 60^2 + 70^2 + 85^2 + 90^2 + 95^2 = 3025 + 3600 + 4900 + 7225 + 8100 + 9025 = 35875$
+* $\sum xy = (2 \times 55) + (3 \times 60) + (5 \times 70) + (8 \times 85) + (10 \times 90) + (12 \times 95) = 110 + 180 + 350 + 680 + 900 + 1140 = 3360$
+
+**Step 2: Calculate $S_{xx}$, $S_{yy}$, and $S_{xy}$.**
+* $S_{xx} = \sum x^2 - \frac{(\sum x)^2}{n} = 346 - \frac{(40)^2}{6} = 346 - \frac{1600}{6} = 346 - 266.67 = 79.33...$
+* $S_{yy} = \sum y^2 - \frac{(\sum y)^2}{n} = 35875 - \frac{(455)^2}{6} = 35875 - \frac{207025}{6} = 35875 - 34504.17 = 1370.83...$
+* $S_{xy} = \sum xy - \frac{(\sum x)(\sum y)}{n} = 3360 - \frac{(40)(455)}{6} = 3360 - \frac{18200}{6} = 3360 - 3033.33 = 326.67...$
+
+**Step 3: Calculate $r$.**
+* $r = \frac{S_{xy}}{\sqrt{S_{xx} S_{yy}}}$
+* $r = \frac{326.67}{\sqrt{79.33 \times 1370.83}}$
+* $r = \frac{326.67}{\sqrt{108741.67}}$
+* $r = \frac{326.67}{329.76}$
+* **$r \approx 0.991$**
+
+**Step 4: Interpretation.**
+The PMCC $r=0.991$ is very close to 1. This indicates a **very strong positive linear correlation** between revision hours and test marks for these students.
+
+### 1.5 Hypothesis Testing for Correlation
+
+The $r$ we calculate is for our *sample*. We often want to know if this suggests there is correlation in the whole *population*. The population PMCC is denoted by $\rho$ (rho).
+
+We test the null hypothesis $H_0: \rho = 0$ (no correlation in the population) against an alternative hypothesis.
+
+* **Two-tailed test:** $H_1: \rho \neq 0$ (there is *some* correlation)
+* **One-tailed (positive):** $H_1: \rho > 0$ (there is *positive* correlation)
+* **One-tailed (negative):** $H_1: \rho < 0$ (there is *negative* correlation)
+
+**Process:**
+1.  State hypotheses $H_0$ and $H_1$.
+2.  State the significance level, $\alpha$ (e.g., 5% or 0.05).
+3.  Calculate your PMCC ($r$) from the sample data.
+4.  Find the **critical value** from a statistical table, based on $n$ and $\alpha$.
+5.  Compare $r$ to the critical value.
+    * If $|r| > \text{critical value}$, we **reject $H_0$**.
+6.  Write a conclusion in context.
+
+---
+**Worked Example (Hypothesis Test):**
+Using the previous example, test at the 5% significance level whether there is positive correlation between revision hours and marks.
+
+1.  **Hypotheses:**
+    * $H_0: \rho = 0$ (No correlation)
+    * $H_1: \rho > 0$ (Positive correlation)
+2.  **Significance Level:**
+    * $\alpha = 0.05$ (one-tailed)
+3.  **Test Statistic:**
+    * From our previous calculation, $r = 0.991$ and $n = 6$.
+4.  **Critical Value:**
+    * We look in the PMCC critical value table (which would be in your formula booklet).
+    * For $n=6$ and $\alpha=0.05$ (one-tailed), the critical value is **0.7293**.
+5.  **Comparison:**
+    * Our test statistic $r=0.991$.
+    * Is $0.991 > 0.7293$? Yes.
+    * Since our $r$-value is in the critical region (it is *more* correlated than the critical value), we **reject $H_0$**.
+6.  **Conclusion:**
+    * There is sufficient evidence at the 5% significance level to suggest a positive correlation between the number of hours revised and the marks achieved in the test.
+
+---
+---
+
+## Chapter 2: Linear Regression
+
+### 2.1 Introduction to Regression
+
+Correlation tells us if there's a link. **Regression** is the next step: it allows us to **model** that link and make predictions.
+
+If two variables have a strong linear correlation, we can find a **line of best fit** that models their relationship. This line is called the **least squares regression line**.
+
+The equation of the line is given in the form:
+
+$$y = a + bx$$
+
+* **$y$**: The response (dependent) variable (the one we want to predict).
+* **$x$**: The explanatory (independent) variable (the one we use to predict).
+* **$b$**: The **gradient**. It tells us how much $y$ changes for every 1-unit increase in $x$.
+* **$a$**: The **$y$-intercept**. It tells us the predicted value of $y$ when $x=0$.
+
+The line is called the "least squares" line because it is calculated to **minimize the sum of the squares of the residuals**. A **residual** is the vertical gap between an actual data point and the regression line (i.e., $\text{residual} = \text{actual } y - \text{predicted } y$).
+
+### 2.2 Calculating the Regression Line
+
+We use the same summary statistics from Chapter 1 ($S_{xx}$ and $S_{xy}$) and the means of $x$ and $y$ ($\bar{x}$ and $\bar{y}$).
+
+**Formulas:**
+
+1.  **First, find the gradient $b$:**
+    $$b = \frac{S_{xy}}{S_{xx}}$$
+
+2.  **Then, find the $y$-intercept $a$:**
+    $$a = \bar{y} - b\bar{x}$$
+
+**Note:** The regression line $(y \text{ on } x)$ is only used to predict $y$ from $x$. You cannot rearrange it to predict $x$ from $y$. You would need to calculate a different line for that (which is rarely required at A-Level).
+
+---
+### 2.3 Worked Example: Calculating the Regression Line
+
+Let's use the *same data* from the revision hours example in Chapter 1.
+
+**Data Summary:**
+* $n = 6$
+* $\sum x = 40$
+* $\sum y = 455$
+* $S_{xx} = 79.33...$ (or $\frac{238}{3}$)
+* $S_{xy} = 326.67...$ (or $\frac{980}{3}$)
+
+**Find the equation of the regression line of $y$ on $x$, in the form $y = a + bx$.**
+
+**Step 1: Calculate the means.**
+* $\bar{x} = \frac{\sum x}{n} = \frac{40}{6} = 6.67...$ (or $\frac{20}{3}$)
+* $\bar{y} = \frac{\sum y}{n} = \frac{455}{6} = 75.83...$ (or $\frac{455}{6}$)
+
+**Step 2: Calculate $b$.**
+* $b = \frac{S_{xy}}{S_{xx}} = \frac{326.67}{79.33} = 4.1176...$
+* (Using exact fractions is better: $b = \frac{980/3}{238/3} = \frac{980}{238} = 4.1176$)
+* Let's use $b \approx 4.12$
+
+**Step 3: Calculate $a$.**
+* $a = \bar{y} - b\bar{x}$
+* $a = 75.833 - (4.1176 \times 6.667)$
+* $a = 75.833 - 27.451 = 48.382...$
+* Let's use $a \approx 48.4$
+
+**Step 4: State the equation.**
+* $y = 48.4 + 4.12x$
+* Or, in context: **Mark = 48.4 + 4.12 $\times$ (Hours)**
+
+---
+### 2.4 Using the Regression Line
+
+We can now use this equation to make predictions and interpret the relationship.
+
+#### Interpreting $a$ and $b$
+
+* **$b = 4.12$ (Gradient):** "For every 1 additional hour of revision, the model predicts the student's mark will increase by **4.12 points**."
+* **$a = 48.4$ (Intercept):** "The model predicts that a student who does 0 hours of revision will get a mark of **48.4**."
+
+#### Interpolation vs. Extrapolation
+
+This is a critical concept.
+
+* **Interpolation:** Making a prediction for $y$ using an $x$-value that is **within** the range of your original data.
+    * Our data ranged from $x=2$ to $x=12$.
+    * *Example:* Predict the mark for a student who revises for 7 hours.
+    * $\text{Mark} = 48.4 + (4.12 \times 7) = 48.4 + 28.84 = 77.24$
+    * This is an **interpolation**, so it is considered **reliable**.
+
+* **Extrapolation:** Making a prediction for $y$ using an $x$-value that is **outside** the range of your original data.
+    * *Example 1:* Predict the mark for 0 hours. We got 48.4. This is an extrapolation (0 is outside 2-12) and may not be reliable. The model assumes the linear trend continues, but a student with 0 hours might get 0.
+    * *Example 2:* Predict the mark for a student who revises for 20 hours.
+    * $\text{Mark} = 48.4 + (4.12 \times 20) = 48.4 + 82.4 = 130.8$
+    * This is a **strong extrapolation** and is **not reliable**. The model predicts a mark of 131, which is likely impossible. The linear relationship probably breaks down after a certain point.
+
+> **Rule:** When commenting on predictions:
+> 1.  State if it is **interpolation** or **extrapolation**.
+> 2.  Comment on **reliability** (Interpolation = reliable, Extrapolation = unreliable).
+> 3.  Also, consider the **strength of the correlation ($r$)**. Our $r=0.991$ was very strong, which makes our *interpolated* predictions very reliable. If $r$ was weak (e.g., 0.2), even interpolation would be unreliable.
+
+---
+---
+
+## Chapter 3: The Normal Distribution
+
+### 3.1 Introduction to the Normal Distribution
+
+The **Normal Distribution** is the most important probability distribution in statistics. It is a **continuous** distribution (can take any value, not just integers) and is defined by its "bell shape".
+
+
+
+[Image of a normal distribution bell curve]
+
+
+It is found everywhere in nature and life. Examples include:
+* Heights of people
+* Weights of apples
+* Errors in measurement
+* IQ scores
+
+A variable $X$ that is normally distributed is written as:
+
+$$X \sim N(\mu, \sigma^2)$$
+
+* **$\mu$ (mu):** The **mean** (the center of the bell).
+* **$\sigma^2$ (sigma-squared):** The **variance** (a measure of spread).
+* **$\sigma$ (sigma):** The **standard deviation** (the square root of variance, also a measure of spread).
+
+### 3.2 Properties of the Normal Distribution
+
+1.  It is **symmetrical** about the mean $\mu$.
+2.  The **mean = median = mode**.
+3.  The **total area** under the curve is exactly **1** (since it's a probability distribution).
+4.  The "Empirical Rule" (68-95-99.7):
+    * Approximately **68%** of the data lies within **1** standard deviation of the mean (i.e., between $\mu - \sigma$ and $\mu + \sigma$).
+    * Approximately **95%** of the data lies within **2** standard deviations of the mean.
+    * Approximately **99.7%** of the data lies within **3** standard deviations of the mean.
+
+### 3.3 The Standard Normal Distribution, $Z$
+
+There are infinitely many normal distributions (one for every possible $\mu$ and $\sigma^2$). To make calculations possible, we "translate" all of them to one standard form: **The Standard Normal Distribution, $Z$**.
+
+The $Z$ distribution has a mean of 0 and a standard deviation of 1.
+$$Z \sim N(0, 1^2)$$
+
+We use a "Z-score" to standardise any $X$ value:
+
+$$Z = \frac{X - \mu}{\sigma}$$
+
+The Z-score tells you **how many standard deviations** a value $X$ is away from its mean $\mu$.
+* A Z-score of $1.5$ means the value is 1.5 standard deviations *above* the mean.
+* A Z-score of $-0.8$ means the value is 0.8 standard deviations *below* the mean.
+
+### 3.4 Calculating Probabilities
+
+This is the most common task. We are given $X \sim N(\mu, \sigma^2)$ and asked to find a probability, e.g., $P(X < k)$.
+
+**Process:**
+1.  **Standardise** the $X$ value to a $Z$-score using the formula.
+2.  **Look up** the probability $P(Z < z)$ in the statistical tables (or use your calculator's Normal CD function).
+3.  **Use symmetry rules** if necessary.
+
+**Key Table Rules (for tables that only give $P(Z<z)$ for positive $z$):**
+* **$P(Z > a) = 1 - P(Z < a)$** (The "greater than" rule)
+* **$P(Z < -a) = P(Z > a) = 1 - P(Z < a)$** (The "negative" rule, by symmetry)
+* **$P(a < Z < b) = P(Z < b) - P(Z < a)$** (The "between" rule)
+
+---
+### 3.5 Worked Example: Finding Probabilities
+
+The IQ scores of a population are modelled as $X \sim N(100, 15^2)$.
+This means $\mu = 100$ and $\sigma = 15$.
+
+**a) Find the probability a randomly chosen person has an IQ less than 120.**
+1.  We want $P(X < 120)$.
+2.  **Standardise:** $Z = \frac{X - \mu}{\sigma} = \frac{120 - 100}{15} = \frac{20}{15} = 1.333...$
+3.  **Look up:** We need $P(Z < 1.33)$. From tables (or calculator), $P(Z < 1.33) = 0.9082$.
+4.  **Answer:** $P(X < 120) = 0.9082$ (or 90.82%).
+
+**b) Find the probability a person has an IQ greater than 90.**
+1.  We want $P(X > 90)$.
+2.  **Standardise:** $Z = \frac{90 - 100}{15} = \frac{-10}{15} = -0.667...$
+3.  **Look up:** We need $P(Z > -0.67)$. By symmetry, this is the same as $P(Z < 0.67)$.
+    * $P(Z < 0.67) = 0.7486$.
+    * (Alternatively: $P(Z > -0.67) = 1 - P(Z < -0.67)$. And $P(Z < -0.67) = 1 - P(Z < 0.67) = 1 - 0.7486 = 0.2514$. So $P(Z > -0.67) = 1 - 0.2514 = 0.7486$.)
+4.  **Answer:** $P(X > 90) = 0.7486$ (or 74.86%).
+
+**c) Find the probability a person has an IQ between 80 and 110.**
+1.  We want $P(80 < X < 110)$.
+2.  **Standardise both:**
+    * $Z_1 = \frac{80 - 100}{15} = \frac{-20}{15} = -1.33$
+    * $Z_2 = \frac{110 - 100}{15} = \frac{10}{15} = 0.67$
+3.  **Look up:** We need $P(-1.33 < Z < 0.67)$.
+    * This is $P(Z < 0.67) - P(Z < -1.33)$.
+    * $P(Z < 0.67) = 0.7486$.
+    * $P(Z < -1.33) = 1 - P(Z < 1.33) = 1 - 0.9082 = 0.0918$.
+    * $P(\text{between}) = 0.7486 - 0.0918 = 0.6568$.
+4.  **Answer:** $P(80 < X < 110) = 0.6568$ (or 65.68%).
+
+### 3.6 The Inverse Normal Problem
+
+This is the reverse. We are **given a probability** and asked to **find the $X$-value**.
+
+**Process:**
+1.  State the problem, e.g., $P(X < k) = 0.95$.
+2.  **Find the $Z$-score** that matches this probability using the "Inverse Normal" tables or calculator function.
+3.  **Un-standardise** using the rearranged formula:
+    $$X = \mu + (Z \times \sigma)$$
+
+---
+### 3.7 Worked Example: Inverse Normal
+
+Using $X \sim N(100, 15^2)$, find the IQ score that 90% of people are *below*.
+
+1.  **State problem:** We want to find $k$ such that $P(X < k) = 0.90$.
+2.  **Find Z-score:** We need $z$ such that $P(Z < z) = 0.90$.
+    * Using the inverse normal table/calculator, we look up 0.90.
+    * This gives $z \approx 1.2816$.
+3.  **Un-standardise:**
+    * $X = \mu + (Z \times \sigma)$
+    * $k = 100 + (1.2816 \times 15)$
+    * $k = 100 + 19.224$
+    * $k = 119.224$
+4.  **Answer:** "90% of people have an IQ score below 119.2."
+
+---
+**Worked Example 2: Inverse (trickier)**
+Find the score $k$ such that 10% of people have an IQ *above* $k$.
+
+1.  **State problem:** $P(X > k) = 0.10$.
+2.  **Find Z-score:** Our tables/calculators use $P(Z < z)$.
+    * If $P(X > k) = 0.10$, then $P(X < k) = 1 - 0.10 = 0.90$.
+    * This is the same as the previous question!
+    * $z \approx 1.2816$.
+3.  **Un-standardise:**
+    * $k = 100 + (1.2816 \times 15) = 119.224$.
+4.  **Answer:** "10% of people have an IQ score above 119.2."
