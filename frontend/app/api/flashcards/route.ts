@@ -26,6 +26,8 @@ export async function POST(request: NextRequest) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (compatible; Next.js API)',
+        'Accept': 'application/json',
       },
       body: JSON.stringify({
         topic,

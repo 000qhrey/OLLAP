@@ -9,11 +9,22 @@ export async function GET() {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (compatible; Next.js API)',
+        'Accept': 'application/json',
       },
     });
 
     if (!backendResponse.ok) {
       const errorText = await backendResponse.text();
+      
+      // Check if Cloudflare challenge page
+      if (errorText.includes('Just a moment') || errorText.includes('challenge-platform')) {
+        return NextResponse.json(
+          { error: 'Backend request blocked by Cloudflare. Please configure Cloudflare to allow API requests or use a direct backend URL.' },
+          { status: 503 }
+        );
+      }
+      
       // Try to parse as error response
       try {
         const errorData = JSON.parse(errorText);
@@ -25,7 +36,7 @@ export async function GET() {
         // Not JSON, use raw text
       }
       return NextResponse.json(
-        { error: `Backend error: ${errorText}` },
+        { error: `Backend error: ${errorText.substring(0, 200)}` },
         { status: backendResponse.status }
       );
     }
