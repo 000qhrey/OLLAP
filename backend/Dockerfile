@@ -23,6 +23,10 @@ RUN uv pip install --system -e .
 # Copy the rest of the application code
 COPY . .
 
+# Copy and set permissions for entrypoint script
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
+
 # Expose port 8000
 EXPOSE 8000
 
@@ -30,5 +34,5 @@ EXPOSE 8000
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
 
-# Run the application
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Use entrypoint script to wait for Qdrant before starting
+ENTRYPOINT ["/docker-entrypoint.sh"]
