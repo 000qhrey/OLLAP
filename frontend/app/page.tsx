@@ -40,34 +40,6 @@ export default function Home() {
             Study smarter with AI-powered learning, flashcards, and adaptive lessons
           </p>
         </div>
-
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          <Card className="p-6 border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/70 transition-colors">
-            <BookOpen className="w-8 h-8 text-primary mb-3" />
-            <h3 className="font-semibold mb-2">Interactive Learning</h3>
-            <p className="text-sm text-muted-foreground">
-              Chat with ollap and get personalized explanations
-            </p>
-          </Card>
-
-          <Card className="p-6 border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/70 transition-colors">
-            <Zap className="w-8 h-8 text-primary mb-3" />
-            <h3 className="font-semibold mb-2">Smart Flashcards</h3>
-            <p className="text-sm text-muted-foreground">
-              Generate and review flashcards from any topic instantly
-            </p>
-          </Card>
-
-          <Card className="p-6 border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/70 transition-colors">
-            <Sparkles className="w-8 h-8 text-primary mb-3" />
-            <h3 className="font-semibold mb-2">Adaptive Lessons</h3>
-            <p className="text-sm text-muted-foreground">
-              Learn at your own pace with visual lessons and canvas tools
-            </p>
-          </Card>
-        </div>
-
         {/* CTA Button */}
         <div className="flex justify-center gap-4">
           <Button
