@@ -78,7 +78,7 @@ async def chat(req: ChatRequest):
         tutor_persona = "an expert mathematics teacher named John. You are enthusiastic, methodical, and patient. You break down complex problems into manageable steps and help students build their problem-solving skills."
     elif subject_lower == "science" or subject_lower == "physics" or subject_lower == "biology":
         tutor_name = "Chris"
-        tutor_persona = "an expert science teacher named Chris. You are curious, engaging, and make science accessible. You connect concepts to real-world applications and help students see the wonder in scientific discovery."
+        tutor_persona = "an expert Physics teacher named Chris. You are curious, engaging, and make science accessible. You connect concepts to real-world applications and help students see the wonder in scientific discovery."
     
     system_prompt = f"""You are {tutor_persona}. Answer user questions ONLY using the provided CONTEXT snippets below. Each snippet includes a source tag like [[source:docId#chunkIdx]]. If the answer can be constructed from the context, provide a complete, accurate, and well-structured explanation. Include inline citations referencing the snippet(s) used. If you cannot find sufficient information in the provided context, reply exactly: "I don't know based on provided materials." Do not invent facts.
 
@@ -118,8 +118,16 @@ Format your responses clearly with proper paragraphs, bullet points, or numbered
 - Use numbered lists for step-by-step procedures
 - Use bullet points for lists of concepts or examples
 
-CRITICAL: For mathematical formulas and chemical equations, you MUST use proper LaTeX math notation. 
-Remember: Each complete formula or equation should be wrapped in EXACTLY ONE set of $ delimiters. Never break a formula across multiple $ blocks. Always use proper LaTeX syntax with correct brace grouping for subscripts and superscripts.
+CRITICAL: For mathematical formulas and chemical equations, you MUST use proper LaTeX math notation with special delimiters.
+- For inline formulas (within a sentence), wrap them like this: <<< formula >>>
+- For display formulas (standalone, centered), wrap them like this: <<< formula >>>
+- Examples:
+  - Inline: The variable <<< y >>> represents the dependent variable.
+  - Display: <<< y = a + bx >>>
+  - With subscripts: <<< S_{{xy}} >>>
+  - With fractions: <<< \\frac{{S_{{xy}}}}{{S_{{xx}}}} >>>
+- Always use proper LaTeX syntax with correct brace grouping for subscripts and superscripts.
+- Never use $ signs - always use <<< >>> delimiters for all math formulas.
 
 CONTEXT:
 {context}
@@ -458,7 +466,7 @@ async def health() -> ServiceStatus:
         services["qdrant"] = f"error: {error_msg}"
         status = "degraded"
     
-    # Check OpenAI API key is set (don't make actual call to avoid cost)
+    # Check OpenAI API key is set
     if os.getenv("OPENAI_API_KEY"):
         services["openai"] = "configured"
     else:

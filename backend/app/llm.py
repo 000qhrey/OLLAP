@@ -9,7 +9,7 @@ from llama_index.core.llms import ChatMessage, MessageRole
 llm = OpenAI(
     model=os.getenv("OPENAI_CHAT_MODEL", "gpt-4o-mini"),
     temperature=0.7,
-    max_tokens=int(os.getenv("OPENAI_MAX_TOKENS", "3000")),  # Increased for comprehensive explanations
+    max_tokens=int(os.getenv("OPENAI_MAX_TOKENS", "3000")),  
 )
 
 async def stream_chat_completion(system_prompt: str, user_message: str) -> AsyncGenerator[dict, None]:

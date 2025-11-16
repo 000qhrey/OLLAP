@@ -1,17 +1,6 @@
 # app/ingest.py
 """
 Document ingestion module using latest LlamaIndex API patterns.
-
-Following LlamaIndex best practices:
-- Use Settings for global defaults (Settings.embed_model, Settings.chunk_size)
-- Prefer local config: pass embed_model and transformations as kwargs
-- Use transformations=[SentenceSplitter(...)] instead of ServiceContext
-- Modules accept kwargs for the objects being used (embed_model, transformations)
-
-Migration from ServiceContext:
-- Old: ServiceContext.from_defaults(embed_model=..., node_parser=...)
-- New: Pass embed_model and transformations directly as kwargs
-- Settings provides global defaults, but local kwargs override them
 """
 import os
 from typing import List, Optional
@@ -37,13 +26,12 @@ _embed_model = OpenAIEmbedding(
     model=os.getenv("OPENAI_EMBED_MODEL", "text-embedding-3-small")
 )
 
-# Initialize text splitter (transformations) - following latest LlamaIndex patterns
+# Initialize text splitter (transformations)
 text_splitter = SentenceSplitter(
     chunk_size=3000,
     chunk_overlap=300,
 )
 
-# Configure Settings as defaults (following latest LlamaIndex API)
 # Prefer passing embed_model and transformations as kwargs for local config
 Settings.embed_model = _embed_model
 Settings.chunk_size = 3000  # Set chunk_size in Settings (newer API)
@@ -150,7 +138,6 @@ def _upsert_document_sync(
     skip_existing: bool = False,
 ) -> int:
     """
-    Synchronous version - upsert document into subject-specific collection using LlamaIndex.
     
     Args:
         doc_id: Document identifier

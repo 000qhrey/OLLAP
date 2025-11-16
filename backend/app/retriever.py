@@ -6,7 +6,7 @@ from app.ingest import _get_or_create_index_sync
 
 def _retrieve_matches_sync(query: str, subject: str, top_k: int = 5) -> List[Dict]:
     """
-    Synchronous version - retrieve matches from subject-specific collection using LlamaIndex.
+    retrieve matches from subject-specific collection using LlamaIndex.
     
     Args:
         query: Search query text

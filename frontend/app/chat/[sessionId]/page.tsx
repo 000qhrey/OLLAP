@@ -11,6 +11,7 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 import { streamChat } from '@/lib/streamChat';
 import { FlashcardCompact } from '@/components/flashcard-compact';
 import { GripVertical } from 'lucide-react';
+import { cleanLaTeX } from '@/lib/latex-cleaner';
 
 // Helper function to detect flashcard requests
 function shouldGenerateFlashcards(message: string): boolean {
@@ -362,6 +363,8 @@ export default function ChatPage() {
                 if (similarity > 0.8) {
                   // Likely duplicate, keep only first half
                   content = firstHalf;
+                  // Clean LaTeX formatting after deduplication
+                  content = cleanLaTeX(content);
                   updateLastMessage(content);
                   return;
                 }
@@ -390,10 +393,13 @@ export default function ChatPage() {
                 
                 if (uniqueSections.length < sections.length) {
                   // Found duplicates, update message with deduplicated content
-                  const deduplicatedContent = uniqueSections.join('\n\n');
-                  updateLastMessage(deduplicatedContent);
+                  content = uniqueSections.join('\n\n');
                 }
               }
+              
+              // Clean LaTeX formatting after all processing is complete
+              content = cleanLaTeX(content);
+              updateLastMessage(content);
             }
           }
         },

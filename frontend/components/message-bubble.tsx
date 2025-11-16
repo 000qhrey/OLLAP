@@ -18,6 +18,8 @@ export function MessageBubble({
   onFlashcardClick?: () => void;
 }) {
   const isAssistant = message.role === 'assistant';
+  // LaTeX is already cleaned in onDone callback after message completion
+  // This is kept as a fallback safety net in case a message somehow bypasses cleaning
   const cleanedContent = isAssistant ? cleanLaTeX(message.content) : message.content;
   const flashcards = message.metadata?.flashcards;
 
