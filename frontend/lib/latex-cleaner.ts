@@ -6,7 +6,27 @@
 export function cleanLaTeX(content: string): string {
   let cleaned = content;
   
-  // Step 0: Convert <<< formula >>> delimiters to LaTeX $ delimiters
+  // Step 0a: Convert [ ... ] LaTeX display math delimiters to $$ ... $$
+  // This handles formulas wrapped in square brackets (common LaTeX notation)
+  cleaned = cleaned.replace(/\[\s*([^\]]+)\s*\]/g, (match, formula) => {
+    const trimmed = formula.trim();
+    // Only convert if it looks like LaTeX math (contains backslashes, math operators, etc.)
+    if (trimmed.includes('\\') || 
+        trimmed.includes('_') || 
+        trimmed.includes('^') ||
+        trimmed.includes('=') ||
+        trimmed.includes('+') ||
+        trimmed.includes('-') ||
+        trimmed.includes('×') ||
+        trimmed.includes('→') ||
+        trimmed.includes('≈')) {
+      return `$$${trimmed}$$`;
+    }
+    // Otherwise, keep the original brackets
+    return match;
+  });
+  
+  // Step 0b: Convert <<< formula >>> delimiters to LaTeX $ delimiters
   // This is the primary way formulas are marked from the backend
   cleaned = cleaned.replace(/<<<([^>]+)>>>/g, (match, formula) => {
     const trimmed = formula.trim();
