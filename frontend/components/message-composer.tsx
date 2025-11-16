@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
-import { Send, Sparkles } from 'lucide-react';
+import { Send } from 'lucide-react';
 
 export function MessageComposer({
   onSend,
@@ -69,18 +69,6 @@ export function MessageComposer({
           className="self-end"
         >
           <Send className="h-4 w-4" />
-        </Button>
-      </div>
-      <div className="flex gap-2 mt-3">
-        <Button
-          variant="outline"
-          size="sm"
-          className="text-xs"
-          onClick={() => onSend(message || 'make flashcards')}
-          disabled={isDisabled}
-        >
-          <Sparkles className="h-3 w-3 mr-1" />
-          Make Flashcards
         </Button>
       </div>
     </div>
